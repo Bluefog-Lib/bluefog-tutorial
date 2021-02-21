@@ -1,0 +1,4 @@
+bluefog
+ipyparallel
+matplotlib
+notebook
