@@ -19,5 +19,8 @@ jobs:
     - name: Install Bluefog
       run: |
         git clone https://github.com/Bluefog-Lib/bluefog.git
-        git submodule update --init --recursive
-        cd bluefog && python -m pip install . && cd ..
+        cd bluefog && git submodule update --init --recursive
+        python -m pip install . && cd ..
+    - name: Hello World Ipynb Test
+      run: |
+        python test_notebook.py
