@@ -39,7 +39,7 @@ fi
 FORMAT_CMD="python3 -m tensorflow_docs.tools.nbfmt --indent=1"
 
 # Test the notebooks
-unformatted=$($FORMAT_CMD --test . 2>&1 || true)
+unformatted=$($FORMAT_CMD --test . 2>&1 | grep "\- Section" || true)
 needed_changes=0
 if [ ! -z "${unformatted}" ]; then
     needed_changes=1
