@@ -2,3 +2,4 @@ bluefog
 ipyparallel
 matplotlib
 notebook
+papermill
