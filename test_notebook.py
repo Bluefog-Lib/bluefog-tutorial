@@ -1,27 +1,61 @@
+import atexit
+import functools
+import glob
+import os
 import subprocess
 import time
-import atexit
 
 import papermill as pm
+import pytest
 
-p_start = subprocess.Popen(
-    'ibfrun start -np 4 --disable-heartbeat', shell=True)
-time.sleep(10)
+SKIP_NOTEBOOKS = [
+    "FederatedLearning/*.ipynb",
+    "Section 3/*.ipynb",
+    "Section 4/*.ipynb",
+    "Section 5/*.ipynb",
+    "Section 6/*.ipynb",
+    "Section 7/*.ipynb",
+]
 
-
-def cleanup_func():
-    if not p_start.poll():
-        print("terminate ibfrun start")
-        p_start.terminate()
-    p_stop = subprocess.Popen('ibfrun stop', shell=True)
-    print("run ibfrun stop")
-    p_stop.wait()
-
-
-atexit.register(cleanup_func)
+def _list_all_notebooks():
+    output = subprocess.check_output(['git', 'ls-files', '*.ipynb'])
+    return set(output.decode('utf-8').splitlines())
 
 
-print("Start papermill")
-pm.execute_notebook('hello.ipynb', "hello.out.ipynb")
-print("End papermill")
-p_start.terminate()
+def _tested_notebooks():
+    """We list all notebooks here, even those that are not """
+
+    all_notebooks = _list_all_notebooks()
+    skipped_notebooks = functools.reduce(
+        lambda a, b: a.union(b), list(
+            set(glob.glob(g, recursive=True)) for g in SKIP_NOTEBOOKS)
+    )
+
+    return sorted(os.path.abspath(n) for n in all_notebooks.difference(skipped_notebooks))
+
+
+@pytest.fixture(scope="session", autouse=True)
+def prepare_ibfrun(request):
+    p_start = subprocess.Popen(
+        'TEST_BLUEFOG_NOTEBOOK=1 ibfrun start -np 4 --disable-heartbeat', shell=True)
+    def _cleanup_func():
+        if not p_start.poll():
+            print("terminate ibfrun start")
+            p_start.terminate()
+        p_stop = subprocess.Popen('ibfrun stop', shell=True)
+        print("run ibfrun stop")
+        p_stop.wait()
+    time.sleep(8)
+    atexit.register(_cleanup_func)
+
+@pytest.mark.parametrize("notebook_path", _tested_notebooks())
+def test_notebooks_against_released_cirq(notebook_path):
+    notebook_file = os.path.basename(notebook_path)
+    notebook_rel_dir = os.path.dirname(os.path.relpath(notebook_path, "."))
+    out_path = f".output/{notebook_rel_dir}/{notebook_file[:-6]}.out.ipynb"
+    if not os.path.exists(f".output/{notebook_rel_dir}"):
+        os.makedirs(f".output/{notebook_rel_dir}")
+
+    print("Start papermill on ", notebook_path)
+    pm.execute_notebook(notebook_path, out_path)
+    print("End papermill")
