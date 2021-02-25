@@ -57,5 +57,5 @@ def test_notebooks_against_released_cirq(notebook_path):
         os.makedirs(f".output/{notebook_rel_dir}")
 
     print("Start papermill on ", notebook_path)
-    pm.execute_notebook(notebook_path, out_path)
+    pm.execute_notebook(notebook_path, out_path, log_output=True, start_timeout=60, execution_timeout=60)
     print("End papermill")
