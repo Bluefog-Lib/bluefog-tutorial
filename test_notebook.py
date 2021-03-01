@@ -12,6 +12,7 @@ SKIP_NOTEBOOKS = [
     "FederatedLearning/*.ipynb",
     "Section 3/*.ipynb",
     "Section 4/*.ipynb",
+    "Section 6/*.ipynb",
     "Section 7/*.ipynb",
 ]
 
