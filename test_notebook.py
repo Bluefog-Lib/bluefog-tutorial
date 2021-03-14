@@ -48,7 +48,7 @@ def prepare_ibfrun(request):
     atexit.register(_cleanup_func)
 
 @pytest.mark.parametrize("notebook_path", _tested_notebooks())
-def test_notebooks_against_released_cirq(notebook_path):
+def test_notebooks_against_bluefog(notebook_path):
     notebook_file = os.path.basename(notebook_path)
     notebook_rel_dir = os.path.dirname(os.path.relpath(notebook_path, "."))
     out_path = f".output/{notebook_rel_dir}/{notebook_file[:-6]}.out.ipynb"
