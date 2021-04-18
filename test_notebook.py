@@ -39,7 +39,7 @@ def _tested_notebooks():
 @pytest.mark.parametrize("notebook_path", _tested_notebooks())
 def test_notebooks_against_bluefog(notebook_path):
     p_start = subprocess.Popen(
-        "TEST_BLUEFOG_NOTEBOOK=1 ibfrun start -np 4 --disable-heartbeat", shell=True
+        "TEST_BLUEFOG_NOTEBOOK=1 ibfrun start -np 4", shell=True
     )
     time.sleep(8)
 
