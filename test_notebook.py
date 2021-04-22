@@ -52,7 +52,6 @@ def test_notebooks_against_bluefog(notebook_path):
             print("terminate ibfrun start")
             p_start.terminate()
 
-    atexit.register(_cleanup_func)
     try:
         notebook_file = os.path.basename(notebook_path)
         notebook_rel_dir = os.path.dirname(os.path.relpath(notebook_path, "."))
