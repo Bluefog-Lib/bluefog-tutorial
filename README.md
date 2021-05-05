@@ -47,9 +47,9 @@ The BlueFog Team involves several researchers and engineers that target to make 
 
 ## Other Resources:
 
-*Faster Learning over Networks and BlueFog*, BlueFog Team, invited talk at MLA, 2020 [slides](https://github.com/Bluefog-Lib/bluefog/blob/master/resources/Faster_Learning_over_Networks_and_BlueFog.pdf)
+*Faster Learning over Networks and BlueFog*, BlueFog Team, invited talk at MLA, 2020 [\[slides\]](https://github.com/Bluefog-Lib/bluefog/blob/master/resources/Faster_Learning_over_Networks_and_BlueFog.pdf)
 
-*Parallel, Distributed, and Decentralized optimization methods*, Wotao Yin, Tutorial in the East Coast Optimization Meeting (ECOM2021), [Materials](https://github.com/Bluefog-Lib/EastCoastTutorial2021)
+*Parallel, Distributed, and Decentralized optimization methods*, Wotao Yin, Tutorial in the East Coast Optimization Meeting (ECOM2021), [\[Materials\]](https://github.com/Bluefog-Lib/EastCoastTutorial2021)
 
 ## Citation
 
