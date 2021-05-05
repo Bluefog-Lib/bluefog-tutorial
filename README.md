@@ -55,14 +55,14 @@ The BlueFog Team involves several researchers and engineers that target to make 
 
 Feel free to share the BlueFog repo and this tutorial to anyone that has an interest. If you use BlueFog, please cite it as follows:
 
-.. code-block::
-
-    @software{bluefog2021_4616052,
-      author       = {BlueFog Team},
-      title        = {BlueFog: Make Decentralized Algorithms Practical For Optimization and Deep Learning},
-      month        = Mar.,
-      year         = 2021,
-      publisher    = {Zenodo},
-      doi          = {10.5281/zenodo.4616052},
-      url          = {https://doi.org/10.5281/zenodo.4616052}
-    }
+```
+@software{bluefog2021_4616052,
+  author       = {BlueFog Team},
+  title        = {BlueFog: Make Decentralized Algorithms Practical For Optimization and Deep Learning},
+  month        = Mar.,
+  year         = 2021,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.4616052},
+  url          = {https://doi.org/10.5281/zenodo.4616052}
+}
+```
