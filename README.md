@@ -43,7 +43,7 @@ This tutorial only contains the very basic concepts, algorithms, theories, and i
 
 ## About BlueFog Team
 
-The BlueFog Team involves several researchers and engineers that target to make decentralized algorithms practical for large-scale optimization and deep learning. It hopes to bridge the gap between the theoretical progress of decentralized algorithms in the academia and the real implementation in the industry. We hope more researchers and engineers can join us to contribute to the community of decentralized optimization. 
+The BlueFog Team involves several researchers and engineers that target to make decentralized algorithms practical for large-scale optimization and deep learning. We hope to bridge the gap between the theoretical progress of decentralized algorithms in the academia and the real implementation in the industry. We hope more researchers and engineers can join us to contribute to the community of decentralized optimization. 
 
 ## Other Resources:
 
