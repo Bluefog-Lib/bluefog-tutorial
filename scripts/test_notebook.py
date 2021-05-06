@@ -9,7 +9,6 @@ import papermill as pm
 import pytest
 
 SKIP_NOTEBOOKS = [
-    "FederatedLearning/*.ipynb",
     "Section 3/*.ipynb",
     "Section 4/*.ipynb",
     "Section 6/*.ipynb",
