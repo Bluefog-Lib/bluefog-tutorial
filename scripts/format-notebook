@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+file_glob="Section*"
+args="--check"
+for arg in $@; do
+    if [[ "${arg}" == "--apply" ]]; then
+        args="" 
+    else
+        echo -e "\033[31mToo many arguments. Expected [--apply].\033[0m" >&2
+        exit 1
+    fi
+done
+
+line_limit='' # "-l 120"
+
+results="$(black-nb -v ${line_limit} ${args} ${file_glob} 2>&1)"
+BLACKSTATUS=$?
+
+echo "$results"
+
+if [[ "$BLACKSTATUS" != "0" ]]; then
+  exit 1
+fi
+exit 0
