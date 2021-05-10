@@ -10,7 +10,7 @@ import pytest
 
 SKIP_NOTEBOOKS = [
     "Section 3/Sec-3.6*.ipynb",
-    "Section 4/*.ipynb",
+    "Section 4/Sec-4.4*.ipynb",
     "Section 6/*.ipynb",
     "Section 7/*.ipynb",
 ]
