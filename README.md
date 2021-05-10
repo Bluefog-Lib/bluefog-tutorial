@@ -1,4 +1,5 @@
 # BlueFog Tutorials
+![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
 
 Welcome to the [BlueFog](https://github.com/Bluefog-Lib/bluefog) tutorials!
 
